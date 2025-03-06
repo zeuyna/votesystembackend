@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-deploy:
-    name: Build and Deploy
+    name: Build and Deploy Voting App
     runs-on: windows-latest
     steps:
       - name: Checkout code
@@ -16,12 +16,15 @@ jobs:
       - name: Setup JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'corretto'  
+          distribution: 'corretto'
           java-version: 17
-
-     
 
       - name: Build the application
         run: |
           mvn clean
           mvn -B package --file pom.xml
+
+      - name: Deploy the application (example step)
+        run: |
+          echo "Deploying the application..."
+          # Ajoute tes commandes de déploiement ici (par exemple vers un serveur ou un cloud)
